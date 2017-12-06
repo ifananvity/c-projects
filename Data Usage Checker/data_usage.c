@@ -14,32 +14,36 @@
 
 /* 
  * Problem:
- * saya pemakai paket XTRA Combo dari XL. setiap saya mau bandingin 'kuota internet' dengan 'sisa hari',
- * biasanya saya hitung manual pake kalkulator (keduanya dijadikan persentase 0-100)
+ * saya pemakai paket XTRA Combo dari XL. setiap saya mau bandingin 
+ * 'kuota internet' dengan 'sisa hari', biasanya saya hitung manual pake
+ *  kalkulator (keduanya dijadikan persentase 0-100)
  * 
  * supaya saya dapet kesimpulan:
  * if persentase kuota internet < persentase sisa hari then
  *     berarti pemakaian saya boros.
- *     ATAU memang paket yang saya pake tidak sesuai dengan pemakaian sehari2 saya (kuota nya sedikit)
+ *     ATAU memang paket yang saya pake tidak sesuai dengan pemakaian sehari2 
+       saya (kuota nya sedikit)
  *     dan saya harus naik paket yang kuota nya lebih banyak dan lebih mahal.
  * else
  *     pemakaian saya hemat.
- *     ATAU paket yang saya gunakan kuotanya melebihi pemakaian sehari2 saya. (kuota terlalu banyak)
- *     dan saya bisa turun paket yang kuota nya lebih sedikit dan lebih murah
+ *     ATAU paket yang saya gunakan kuotanya melebihi pemakaian sehari2 saya
+ *     (kuota terlalu banyak) dan saya bisa turun paket yang kuota nya lebih
+ *     sedikit dan lebih murah
  * 
  * kenapa tidak pake aplikasi bawaan 'myXL' saja?
- * karena interfacenya menunjukan 'sisa kuota 4g' dan 'sisa kuota 2g/3g/4g' dengan bar yang terpisah
- * dan bahkan sisa hari nya ga pake bar, melainkan hanya teks "Valid until: 29 days"
+ * karena interfacenya menunjukan 'sisa kuota 4g' dan 'sisa kuota 2g/3g/4g' 
+ * dengan bar yang terpisah dan bahkan sisa hari nya ga pake bar, melainkan 
+ * hanya teks "Valid until: 29 days"
  */
 
 //Libraries
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
+//#include <stdbool.h>
 #include <conio.h>
 
-//Global Variables
+//Globals
 char planSelection;
 char includeYoutubeOption;
 int dataYoutubePercentage;
@@ -49,7 +53,7 @@ float data4G, remainingData4G;
 float data2G3G4G, remainingData2G3G4G;
 float dataYoutube, remainingDataYoutube;
 
-//Function prototypes
+//Prototypes
 void selectPlan(void);
 void assignQuotaAmount(void);
 void displayPlanDetail(void);
@@ -70,7 +74,7 @@ int main(void) {
 	return EXIT_SUCCESS;
 }
 
-/* ---------------------------------------- FUNCTIONS ---------------------------------------- */
+/* ------------------------------ FUNCTIONS ------------------------------ */
 
 void selectPlan() {
     int flag = 0;
@@ -82,7 +86,8 @@ void selectPlan() {
         printf("4. XTRA Combo 8  GB, Rp. 59k\n");
         printf("Choose data plan you're currently on: ");
         planSelection = getchar();
-        if (planSelection == '1' || planSelection == '2' || planSelection == '3' || planSelection == '4') {
+        if (planSelection == '1' || planSelection == '2' || 
+            planSelection == '3' || planSelection == '4') {
             flag = 1;
         }
     }
@@ -124,7 +129,7 @@ void assignQuotaAmount() {
 }
 
 void displayPlanDetail() {
-	printf("\nPlan detail:\n");
+    printf("\nPlan detail:\n");
     printf("- 4G        %.0f GB\n", data4G);
     printf("- 2G/3G/4G  %.0f GB\n", data2G3G4G);
     printf("- Youtube   %.0f GB\n\n", dataYoutube);
@@ -136,8 +141,8 @@ void promptAndCalculateRemainingQuota() {
         scanf("%f", &remainingData4G);
     }
     while (remainingData2G3G4G > data2G3G4G) {
-    	printf("2G/3G/4G data remaining: ");
-    	scanf("%f", &remainingData2G3G4G);
+        printf("2G/3G/4G data remaining: ");
+        scanf("%f", &remainingData2G3G4G);
     }
 
     printf("\n");
@@ -153,8 +158,9 @@ void promptAndCalculateRemainingQuota() {
         }
     }
 
-	//Menentukan persentase kuota internet
-	dataInternetPercentage = ((remainingData4G + remainingData2G3G4G) / (data4G + data2G3G4G)) * 100.0;
+    //Menentukan persentase kuota internet
+    dataInternetPercentage = ((remainingData4G + remainingData2G3G4G) / 
+                              (data4G + data2G3G4G)) * 100.0;
     dataYoutubePercentage =  (remainingDataYoutube / dataYoutube) * 100.0;
 }
 
@@ -175,13 +181,14 @@ void conclusion() {
     progressBar("Internet Data ", dataInternetPercentage, 100);
     printf("\n");
     if (includeYoutubeOption == 'y') {
-    	progressBar("Youtube Data  ", dataYoutubePercentage, 100);
+        progressBar("Youtube Data  ", dataYoutubePercentage, 100);
         printf("\n");
     }
     progressBar("Active Period ", remainingDaysPercentage, 100);
     printf("\n\n");
 
-    if (dataInternetPercentage < remainingDaysPercentage || dataInternetPercentage < remainingDaysPercentage) {
+    if (dataInternetPercentage < remainingDaysPercentage || 
+        dataInternetPercentage < remainingDaysPercentage) {
         printf("\"Boros\"\n");
     } else {
         printf("\"Hemat\"\n");
