@@ -1,7 +1,6 @@
 /*
 ==============================================================================
 Author	: Tifan Dwi Avianto (github.com/ifananvity)
-NIM		: A11.2017.10629 / A11.4113
 Version	: 1.0 - 12/12/2017
 Desc	: Assess fees on tollway depending on vehicle type and calculate total
           income 

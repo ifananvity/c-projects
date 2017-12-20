@@ -1,7 +1,6 @@
 /*
 ==============================================================================
 Author	: Tifan Dwi Avianto (github.com/ifananvity)
-NIM		: A11.2017.10629 / A11.4113
 Version	: 1.0 - 11/12/2017
 Desc	: Money manager. Calculates income and expenses for x(user input) days
 ==============================================================================
