@@ -187,8 +187,7 @@ void conclusion() {
     progressBar("Active Period ", remainingDaysPercentage, 100);
     printf("\n\n");
 
-    if (dataInternetPercentage < remainingDaysPercentage || 
-        dataInternetPercentage < remainingDaysPercentage) {
+    if (dataInternetPercentage < remainingDaysPercentage) {
         printf("\"Boros\"\n");
     } else {
         printf("\"Hemat\"\n");

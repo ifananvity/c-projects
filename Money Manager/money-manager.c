@@ -21,6 +21,7 @@ int expense[10];
 int flag, flag2;
 int k = 0;
 int l = 0;
+int i, j, o, p;     // loop vars
 
 // Constants definitions
 #define TRUE 1
@@ -145,14 +146,14 @@ void expenseTransaction() {
 	printf("How many days would you want to input your expenses? ");
 	scanf("%d", &askDays);
 
-	for (int i = 1; i <= askDays; i++) {
+	for (i = 1; i <= askDays; i++) {
 		// set initial value
 		totalTrx = 0;
 		
 		printf("Day %d\n", i);
 		printf("  How many transaction? ");
 		scanf("%d", &askTrx);
-		for (int j = 1; j <= askTrx; j++) {
+		for (j = 1; j <= askTrx; j++) {
 			if (j == 1) {
 				printf("    1st transaction: ");
 			} else if (j == 2) {
@@ -189,7 +190,7 @@ void printStats() {
 
 		// income history
 		printf("-Incomes\n");
-		for (int o = 0; o < k; o++) {
+		for (o = 0; o < k; o++) {
 			printf(" %d ", income[o]);
 			switch (incomeSource[o]) {
 				case 1 : {
@@ -220,7 +221,7 @@ void printStats() {
 
 		// expenses history
 		printf("-Expenses\n");
-		for (int p = 0; p < l; p++) {
+		for (p = 0; p < l; p++) {
 			printf(" %d\n", expense[p]);
 		}
 	}
