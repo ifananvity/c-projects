@@ -1,2 +1,2 @@
 # c-projects
-Library of trivial programs that are built to accomplish simple day-to-day task. It's more or less useful.
+Library of trivial projects that are meant to accomplish simple day-to-day task or any kind. It's more or less useful.
