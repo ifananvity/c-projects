@@ -1,2 +1,2 @@
 # c-projects
-Just a library of simple programs that I write in my spare time. It's more or less useful.
+Library of trivial programs that are built to accomplish simple day-to-day task. It's more or less useful.
